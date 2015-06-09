@@ -1,0 +1,7 @@
+{
+	"description" : "Aplikasi SIP-MEN PLN Jayapura",
+	"name" : "sip-men",
+	"require": {
+		"dompdf/dompdf" : "0.6.*"
+	} 
+}
