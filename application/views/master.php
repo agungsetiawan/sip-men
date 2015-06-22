@@ -127,22 +127,22 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="<?php site_url("welcome/smoke"); ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="<?php echo site_url("welcome"); ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="penyambungan.html"><i class="fa fa-flash fa-fw"></i> Penyambungan Sementara</a>
+                            <a href="<?php echo site_url("penyambungan"); ?>"><i class="fa fa-flash fa-fw"></i> Penyambungan Sementara</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-fire fa-fw"></i> Gangguan KWH Meter</a>
+                            <a href="<?php echo site_url("gangguan"); ?>"><i class="fa fa-fire fa-fw"></i> Gangguan KWH Meter</a>
                         </li>
                         <li>
-                            <a href="pemutusan.html"><i class="fa fa-legal fa-fw"></i> Pemutusan</a>
+                            <a href="<?php echo site_url("pemutusan"); ?>"><i class="fa fa-legal fa-fw"></i> Pemutusan</a>
                         </li>
                         <li>
-                            <a href="data-monitoring.html"><i class="fa fa-table fa-fw"></i> Monitoring Data</a>
+                            <a href="<?php echo site_url("monitoring"); ?>"><i class="fa fa-table fa-fw"></i> Monitoring Data</a>
                         </li>
                         <li>
-                            <a href="<?php base_url("welcome/test"); ?>"><i class="fa fa-user fa-fw"></i> Data Pengguna</a>
+                            <a href="<?php echo site_url("pengguna"); ?>"><i class="fa fa-user fa-fw"></i> Data Pengguna</a>
                         </li>
                     </ul>
                 </div>
