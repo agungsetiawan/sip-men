@@ -22,4 +22,14 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+	public function smoke()
+	{
+		$this->template->load('master','dashboard');
+	}
+
+	public function test()
+	{
+		$this->template->load('master','data_pengguna');
+	}
 }
