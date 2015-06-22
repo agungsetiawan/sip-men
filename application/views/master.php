@@ -184,6 +184,27 @@
 		        .datepicker({
 		            format: 'dd/mm/yyyy'
 		        });		     
+
+
+            $('#button-cari-pelanggan').on('click', function(){
+                
+                dataString = $("#cari-pelanggan").val();
+ 
+                 $.ajax({
+                   type: "GET",
+                   url: "<?php echo base_url(); ?>index.php/pelanggan/search/"+dataString,
+                   success: function(data){
+                       $("#nama").val(data.nama);
+                       $("#alamat").val(data.alamat);
+                       $("#daya").val(data.daya);
+                       $("#tarif").val(data.tarif);
+                       $("#rpkwh").val(data.rpkwh);
+                   }
+         
+                 });
+
+            });
+
 		 });
 
 		$('#reset').on('click',function(e){

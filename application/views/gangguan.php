@@ -19,37 +19,37 @@
                                 <label>ID Pelanggan</label>
 							    <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Input ID Pelanggan di sini">
+                                        <input id="cari-pelanggan" type="text" class="form-control" placeholder="Input ID Pelanggan di sini">
                                         <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+                                            <button class="btn btn-default" type="button" id="button-cari-pelanggan"><i class="fa fa-search"></i>
                                             </button>
                                         </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Nama</label>
-                                    <input class="form-control">
+                                    <input id="nama" class="form-control">
                                     <p class="help-block">Example block-level help text here.</p>
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat</label>
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea id="alamat" class="form-control" rows="3"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>No. HP</label>
-                                    <input class="form-control">
+                                    <input id="nohp" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Daya</label>
-                                    <input class="form-control">
+                                    <input id="daya" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Tarif</label>
-                                    <input class="form-control">
+                                    <input id="tarif" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Rp/KWH</label>
-                                    <input class="form-control">
+                                    <input id="rpkwh" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Gangguan</label>
