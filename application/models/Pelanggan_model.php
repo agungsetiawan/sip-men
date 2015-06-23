@@ -12,4 +12,8 @@ class Pelanggan_model extends CI_Model {
         $this->db->where('id_pelanggan', $idPelanggan);
         return $this->db->get($this->table)->row();
     }
+
+    public function create($data){
+        $this->db->insert($this->table, $data);
+    }
 }
