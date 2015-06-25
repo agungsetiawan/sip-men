@@ -6,7 +6,7 @@
 </div>
 <div class="row">
     <div class="col-lg-12 text-right" style="margin-bottom:10px">
-        <a class="btn btn-primary" href="">Tambah</a>
+        <a class="btn btn-primary" href="<?php echo site_url('pengguna/create'); ?>">Tambah</a>
     </div>
 </div>
 <!-- /.row -->
@@ -25,32 +25,22 @@
                                 <th>#</th>
                                 <th>Nama</th>
                                 <th>Username</th>
-                                <th>Hak Akses</th>
+                                <th>Level</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i=1; ?>
+                            <?php foreach($pengguna as $p): ?>
                             <tr>
-                                <td>1</td>
-                                <td>Desna</td>
-                                <td>desna</td>
-                                <td>admin</td>
-                                <td><a href="#" class="btn btn-warning">Edit</a> <a href="#" class="btn btn-danger">Hapus</a></td>
+                                <td><?php echo $i; ?></td>
+                                <td><?php echo $p->nama; ?></td>
+                                <td><?php echo $p->username; ?></td>
+                                <td><?php echo $p->level; ?></td>
+                                <td><a href="<?php echo site_url('pengguna/edit/')."/".$p->id; ?>" class="btn btn-warning">Edit</a> <a href="#" class="btn btn-danger">Hapus</a></td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Haksiol</td>
-                                <td>haksiol</td>
-                                <td>petugas</td>
-                                <td><a href="#" class="btn btn-warning">Edit</a> <a href="#" class="btn btn-danger">Hapus</a></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Jogjig</td>
-                                <td>thejogjig</td>
-                                <td>pengintai</td>
-                                <td><a href="#" class="btn btn-warning">Edit</a> <a href="#" class="btn btn-danger">Hapus</a></td>
-                            </tr>
+                            <?php $i++; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -59,4 +49,4 @@
             <!-- /.panel-body -->
         </div>
     </div>
-</div> 
+</div>
