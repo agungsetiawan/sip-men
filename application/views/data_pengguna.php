@@ -55,7 +55,8 @@
                                 <td><?php echo $p->nama; ?></td>
                                 <td><?php echo $p->username; ?></td>
                                 <td><?php echo $p->level; ?></td>
-                                <td><a href="<?php echo site_url('pengguna/edit/')."/".$p->id; ?>" class="btn btn-warning">Edit</a> <a href="#" class="btn btn-danger">Hapus</a></td>
+                                <td><a href="<?php echo site_url('pengguna/edit/')."/".$p->id; ?>" class="btn btn-warning">Edit</a> 
+                                    <a href="<?php echo site_url('pengguna/delete/')."/".$p->id; ?>" class="btn btn-danger">Hapus</a></td>
                             </tr>
                             <?php $i++; ?>
                             <?php endforeach; ?>

@@ -25,4 +25,9 @@ class Pengguna_model extends CI_Model {
         $this->db->where('id', $idPengguna);
         return $this->db->get($this->table)->row();
     }
+
+    public function delete($id){
+    	$this->db->where('id', $id);
+		$this->db->delete($this->table);
+    }
 }

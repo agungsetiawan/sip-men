@@ -96,4 +96,10 @@ class Pengguna extends CI_Controller {
 			redirect(site_url('pengguna'));
         }
 	}
+
+	public function delete($id){
+		$this->pengguna_model->delete($id);
+		$this->session->set_flashdata('message', 'Data Pengguna Berhasil Dihapus');
+		redirect(site_url('pengguna'));
+	}
 }
