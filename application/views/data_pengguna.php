@@ -4,6 +4,24 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
+
+<?php 
+
+  if ($this->session->userdata('message') !='')
+  { ?>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <?php echo $this->session->userdata('message'); ?>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+<?php    
+  }
+?>
+
 <div class="row">
     <div class="col-lg-12 text-right" style="margin-bottom:10px">
         <a class="btn btn-primary" href="<?php echo site_url('pengguna/create'); ?>">Tambah</a>

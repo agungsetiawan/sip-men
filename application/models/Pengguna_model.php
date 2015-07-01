@@ -12,6 +12,11 @@ class Pengguna_model extends CI_Model {
         $this->db->insert($this->table, $data);
     }
 
+    public function update($data,$id){
+    	// $this->db->where('id', $id);
+		$this->db->update($this->table, $data, array('id'=>$id));
+    }
+
     public function getAll(){
     	return $this->db->get($this->table)->result();
     }
