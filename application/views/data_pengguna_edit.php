@@ -37,6 +37,7 @@
                                     <?php
                                       $options=array('Admin'=>'Admin',
                                                      'Supervisor'=>'Supervisor',
+                                                     'Manajer Rayon'=>'Manajer Rayon',
                                                      'Operator'=>'Operator');
                                       echo form_dropdown('level',$options,$pengguna->level,array('class'=>'form-control'));
                                     ?>

@@ -3,8 +3,57 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
+	function __construct()
+    {
+        parent::__construct();
+        $this->load->model('pengguna_model');
+    }
+
 	public function index()
 	{
+		if(!$this->session->has_userdata('username'))
+		{
+			redirect(site_url('welcome/login'));
+		}
+
 		$this->template->load('master','dashboard');
+	}
+
+	public function login()
+	{
+		$this->load->view('login');
+	}
+
+	public function loginAction()
+	{
+		$username=$this->input->post('username');
+		$password=md5($this->input->post('password'));
+
+		$row=$this->pengguna_model->getByUsernamePassword($username,$password);
+
+		if($row<1)
+		{
+			redirect(site_url('welcome/login'));
+		}
+		else
+		{
+			$pengguna=$this->pengguna_model->getByUsername($username);
+
+			$data=array(
+				'username'=> $username,
+				'level'=> $pengguna->level,
+				'nama' => $pengguna->nama
+				);
+
+			$this->session->set_userdata($data);
+			redirect(site_url('welcome/index'));
+		}
+	}
+
+	public function logout()
+	{
+		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('level');
+		redirect(site_url('welcome/login'));
 	}
 }

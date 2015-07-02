@@ -8,6 +8,16 @@ class Pengguna extends CI_Controller {
         parent::__construct();
         $this->load->model('pengguna_model');
 		$this->load->library('form_validation');
+
+		if(!$this->session->has_userdata('username'))
+		{
+			redirect(site_url('welcome/login'));
+		}
+
+		if($this->session->userdata('level')!='Admin')
+		{
+			redirect(site_url('welcome/index'));
+		}
     }
 
 	public function index()

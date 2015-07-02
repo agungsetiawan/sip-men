@@ -9,6 +9,11 @@ class Penyambungan extends CI_Controller {
         $this->load->model('penyambungan_model');
         $this->load->model('pelanggan_model');
 		$this->load->library('form_validation');
+
+		if(!$this->session->has_userdata('username'))
+		{
+			redirect(site_url('welcome/login'));
+		}
     }
 
 	public function index()

@@ -10,6 +10,11 @@ class Gangguan extends CI_Controller {
         $this->load->model('gangguan_model');
 
 		$this->load->library('form_validation');
+
+		if(!$this->session->has_userdata('username'))
+		{
+			redirect(site_url('welcome/login'));
+		}
     }
 
 	public function index()

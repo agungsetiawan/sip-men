@@ -26,8 +26,21 @@ class Pengguna_model extends CI_Model {
         return $this->db->get($this->table)->row();
     }
 
+    public function getByUsername($username){
+        $this->db->where('username', $username);
+        return $this->db->get($this->table)->row();
+    }
+
     public function delete($id){
     	$this->db->where('id', $id);
 		$this->db->delete($this->table);
+    }
+
+    public function getByUsernamePassword($username,$password)
+    {
+    	$this->db->where('username', $username);
+    	$this->db->where('password', $password);
+        $this->db->from($this->table);
+        return $this->db->count_all_results();
     }
 }
