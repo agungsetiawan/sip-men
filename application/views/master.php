@@ -138,12 +138,31 @@
                         <li>
                             <a href="<?php echo site_url("pemutusan"); ?>"><i class="fa fa-legal fa-fw"></i> Pemutusan</a>
                         </li>
-                        <li>
+                        <?php
+
+                            if($this->session->userdata('level')!='Operator')
+                            {
+                        ?>
+                         <li>
                             <a href="<?php echo site_url("monitoring"); ?>"><i class="fa fa-table fa-fw"></i> Monitoring Data</a>
                         </li>
+                        <?php
+                            }
+
+                        ?>
+                       
+                       <?php
+
+                            if($this->session->userdata('level')=='Admin')
+                            {
+                        ?>
                         <li>
                             <a href="<?php echo site_url("pengguna"); ?>"><i class="fa fa-user fa-fw"></i> Data Pengguna</a>
                         </li>
+                        <?php
+                            }
+                       ?>
+                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

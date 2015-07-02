@@ -7,6 +7,8 @@ class Welcome extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('pengguna_model');
+        $this->load->model('penyambungan_model');
+        $this->load->model('gangguan_model');
     }
 
 	public function index()
@@ -16,7 +18,11 @@ class Welcome extends CI_Controller {
 			redirect(site_url('welcome/login'));
 		}
 
-		$this->template->load('master','dashboard');
+		$data['jumlahPengguna']=$this->pengguna_model->count();
+		$data['jumlahPenyambungan']=$this->penyambungan_model->count();
+		$data['jumlahGangguan']=$this->gangguan_model->count();
+
+		$this->template->load('master','dashboard',$data);
 	}
 
 	public function login()
