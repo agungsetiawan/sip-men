@@ -52,7 +52,7 @@ class Pemutusan extends CI_Controller {
         else
         {
         	$idPelanggan=$this->input->post('id-pelanggan');
-        	$idPemutusan=$this->input->post('id-penyambungan');
+        	$idPenyambungan=$this->input->post('id-penyambungan');
 			$nama=$this->input->post('nama');
 			$alamat=$this->input->post('alamat');
 			$noHp=$this->input->post('nohp');
@@ -88,7 +88,7 @@ class Pemutusan extends CI_Controller {
 				'pemakaian_kwh'=>$pemakaianKwh,
 				'tagihan'=>$tagihan,
 				'terbilang'=>'Dua Ratus Juta Rupiah',
-				'pemutusan_id'=>$idPemutusan
+				'penyambungan_id'=>$idPenyambungan
 			);
 
 			$this->pemutusan_model->create($data);

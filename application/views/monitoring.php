@@ -41,52 +41,34 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i=1; ?>
+                            <?php foreach($monitoring as $m): ?>
                             <tr>
-                                <td>1</td>
-                                <td>SIP-MEN/207</td>
-                                <td>DESKINIEL</td>
-                                <td>JAYAPURA</td>
-                                <td>085242465522</td>
-                                <td>5500</td>
-                                <td>B1T</td>
-                                <td>Konser Musik</td>
-                                <td>1 Juni 2015</td>
-                                <td>6 Juni 2015</td>
-                                <td>SIP-MEN/01</td>
-                                <td>0</td>
-                                <td>Bayu</td>
-                                <td></td>
-                                <td>1390</td>
-                                <td>7 Juni 2015</td>
-                                <td></td>
-                                <td>0</td>
-                                <td>-</td>
-                                <td>nol</td>
+                                <td><?php echo $i; ?></td>
+                                <td><?php echo $m->id_pelanggan; ?></td>
+                                <td><?php echo $m->nama; ?></td>
+                                <td><?php echo $m->alamat; ?></td>
+                                <td><?php echo $m->no_telepon; ?></td>
+                                <td><?php echo $m->daya; ?></td>
+                                <td><?php echo $m->tarif; ?></td>
+                                <td><?php echo $m->tujuan; ?></td>
+                                <td><?php echo $m->tanggal_permohonan; ?></td>
+                                <td><?php echo $m->tanggal_pasang; ?></td>
+                                <td><?php echo $m->id_kwh_ganti; ?></td>
+                                <td><?php echo $m->stand_awal; ?></td>
+                                <td><?php echo $m->petugas_pasang; ?></td>
+                                <td><?php echo $m->petugas_cabut; ?></td>
+                                <td><?php echo $m->rpkwh; ?></td>
+                                <td><?php echo $m->tanggal_cabut; ?></td>
+                                <td><?php echo $m->stand_akhir; ?></td>
+                                <td><?php echo $m->pemakaian_kwh; ?></td>
+                                <td><?php echo $m->tagihan; ?></td>
+                                <td><?php echo $m->terbilang; ?></td>
                                 <td><a href="#" class="btn btn-warning">Edit</a> <a href="#" class="btn btn-danger">Hapus</a></td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><a href="#" class="btn btn-warning">Edit</a> <a href="#" class="btn btn-danger">Hapus</a></td>
-                            </tr>
+                            <?php $i++; ?>
+                            <?php endforeach; ?>
+
                         </tbody>
                     </table>
                 </div>

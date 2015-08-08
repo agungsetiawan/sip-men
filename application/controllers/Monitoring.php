@@ -6,6 +6,7 @@ class Monitoring extends CI_Controller {
 	function __construct()
     {
         parent::__construct();
+        $this->load->model('monitoring_model');
 
 		if(!$this->session->has_userdata('username'))
 		{
@@ -20,6 +21,11 @@ class Monitoring extends CI_Controller {
 
 	public function index()
 	{
-		$this->template->load('master','monitoring');
+		$data['monitoring']=$this->monitoring_model->getAll();
+		// $value=$this->monitoring_model->getAll();
+		// $this->output
+  //   		 ->set_content_type('application/json')
+  //   		 ->set_output(json_encode($value));
+		$this->template->load('master','monitoring',$data);
 	}
 }
