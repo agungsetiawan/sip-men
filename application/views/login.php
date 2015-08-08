@@ -36,6 +36,21 @@
 <body>
 
     <div class="container">
+        <?php 
+          if ($this->session->userdata('message') !='')
+          { ?>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <?php echo $this->session->userdata('message'); ?>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+        <?php    
+          }
+        ?>
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">

@@ -39,6 +39,7 @@ class Welcome extends CI_Controller {
 
 		if($row<1)
 		{
+			$this->session->set_flashdata('message', 'Username / Password Salah');
 			redirect(site_url('welcome/login'));
 		}
 		else

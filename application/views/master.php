@@ -206,9 +206,7 @@
 
 
             $('#button-cari-pelanggan').on('click', function(){
-                
-                dataString = $("#cari-pelanggan").val();
- 
+                 dataString = $("#cari-pelanggan").val();
                  $.ajax({
                    type: "GET",
                    url: "<?php echo base_url(); ?>index.php/pelanggan/search/"+dataString,
@@ -219,9 +217,34 @@
                        $("#tarif").val(data.tarif);
                        $("#rpkwh").val(data.rpkwh);
                    }
-         
                  });
+            });
 
+            $('#button-cari-pemutusan').on('click', function(){
+                dataString = $("#cari-pelanggan").val();
+                 $.ajax({
+                   type: "GET",
+                   url: "<?php echo base_url(); ?>index.php/pemutusan/search/"+dataString,
+                   success: function(data){
+                       $("#nama").val(data.nama);
+                       $("#alamat").val(data.alamat);
+                       $("#nohp").val(data.no_telepon);
+                       $("#daya").val(data.daya);
+                       $("#tarif").val(data.tarif);
+                       $("#rpkwh").val(data.rpkwh);
+                       $("#gangguan").val(data.tujuan);
+
+                       $("#tanggal-pasang").val(data.tanggal_pasang);
+                       $("#stand-awal").val(data.stand_awal);
+                       $("#petugas").val(data.petugas_pasang);
+                       $("#idkwhganti").val(data.id_kwh_ganti);
+
+                       $("#tanggal-cabut").val(data.tanggal_cabut);
+
+                       $("#id-penyambungan").val(data.id);
+                       
+                   }
+                 });
             });
 
 		 });
