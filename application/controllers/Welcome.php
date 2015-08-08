@@ -9,6 +9,7 @@ class Welcome extends CI_Controller {
         $this->load->model('pengguna_model');
         $this->load->model('penyambungan_model');
         $this->load->model('gangguan_model');
+        $this->load->model('pelanggan_model');
     }
 
 	public function index()
@@ -21,6 +22,7 @@ class Welcome extends CI_Controller {
 		$data['jumlahPengguna']=$this->pengguna_model->count();
 		$data['jumlahPenyambungan']=$this->penyambungan_model->count();
 		$data['jumlahGangguan']=$this->gangguan_model->count();
+		$data['jumlahPelanggan']=$this->pelanggan_model->count();
 
 		$this->template->load('master','dashboard',$data);
 	}
@@ -62,5 +64,13 @@ class Welcome extends CI_Controller {
 		$this->session->unset_userdata('username');
 		$this->session->unset_userdata('level');
 		redirect(site_url('welcome/login'));
+	}
+
+	public function lembar()
+	{
+		// $this->load->view('lembar_penyambungan');
+		$this->load->library('pdfgenerator');
+		$lembar=$this->load->view('lembar_penyambungan','',true);
+		$this->pdfgenerator->generate($lembar,'Form Penyambungan Sementara');
 	}
 }

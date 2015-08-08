@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge"><?php echo $jumlahPenyambungan ?></div>
-                        <div>Penyambungan Sementara</div>
+                        <div>Penyambungan</div>
                     </div>
                 </div>
             </div>
@@ -80,8 +80,8 @@
                         <i class="fa fa-support fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">13</div>
-                        <div>Dummy Data</div>
+                        <div class="huge"><?php echo $jumlahPelanggan; ?></div>
+                        <div>Pelanggan</div>
                     </div>
                 </div>
             </div>
