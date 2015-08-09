@@ -28,7 +28,7 @@
                 Input Data Pelanggan & Penyambungan Sementara
             </div>
             <div class="panel-body">
-                <form role="form" action="<?php echo site_url('penyambungan/create') ?>" method="POST">
+                <form role="form" id="form-penyambungan" action="<?php echo site_url('penyambungan/create') ?>" method="POST">
                     <div class="row">
                         <div class="col-lg-6">
 							    <div class="form-group">
@@ -109,7 +109,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <button type="submit" class="btn btn-default">Save</button>
-                            <button type="button" class="btn btn-info">Print</button>
+                            <button type="submit" id="btn-print-penyambungan" class="btn btn-info">Print</button>
                             <button type="reset" id="reset" class="btn btn-danger">Delete</button>
                         </div>
                     </div> <!-- row 2 -->

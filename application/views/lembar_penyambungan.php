@@ -27,7 +27,7 @@
     		margin: 0 auto;
     	}
 
-        #table-nomor #table-tanda-tangan{
+        #table-nomor, #table-tanda-tangan{
             width: 768px;
         }
 
@@ -41,7 +41,7 @@
     	}
 
         #nomor-surat{
-            margin-left: 100px;
+            margin-left: 180px;
         }
 
     	#header{
@@ -172,7 +172,7 @@
         </div>
 
         <div id="keterangan">
-        	<p>KETERANGN : Penyambungan sementara untuk keperluan Konser Musik.</p>
+        	<p>KETERANGN : Penyambungan sementara untuk keperluan <?php echo $kegiatan; ?>.</p>
         </div>
 
         <div id="content">
@@ -187,27 +187,27 @@
         	<table>
     			<tr>
     				<td class="two-hundred">ID. Pelanggan</td>
-    				<td>: 12345</td>
+    				<td>: <?php echo $idPelanggan; ?></td>
     			</tr>
     			<tr>
     				<td>Nama pelanggan</td>
-    				<td>: DESKINIEL</td>
+    				<td>: <?php echo $nama; ?></td>
     			</tr>
     			<tr>
     				<td>Alamat</td>
-    				<td>: JAYAPURA</td>
+    				<td>: <?php echo $alamat; ?></td>
     			</tr>
     			<tr>
     				<td>Daya</td>
-    				<td>: 5500</td>
+    				<td>: <?php echo $daya; ?></td>
     			</tr>
     			<tr>
     				<td>No. handphone</td>
-    				<td>: 089089089089</td>
+    				<td>: <?php echo $noHp; ?></td>
     			</tr>
     			<tr>
     				<td>Tarif</td>
-    				<td>: B1T</td>
+    				<td>: <?php echo $tarif; ?></td>
     			</tr>
     		</table>
 
@@ -216,16 +216,16 @@
     		<table id="table-two">
     			<tr>
     				<td class="two-hundred">ID. kWh-meter Pengganti</td>
-    				<td>: SIP-MEN/09</td>
+    				<td>: <?php echo $idKwhGanti; ?></td>
     			</tr>
     			<tr>
     				<td>Stand Awal</td>
-    				<td>: 0</td>
+    				<td>: <?php echo $standAwal; ?></td>
     			</tr>
     		</table>
 
     		<div id="tanggal">
-    			<p>Jayapura, 8 Agustus 2015</p>
+    			<p>Jayapura, <?php echo $tanggal; ?></p>
     		</div>
 
     		<div id="tanda-tangan">
@@ -234,13 +234,13 @@
                         <td>
                             <div id="tanda-pelanggan">
                                 <p>Pelanggan</p>
-                                <p class="spasi-ttd"><u>DESKINIEL</u></p>
+                                <p class="spasi-ttd"><u><?php echo $nama; ?></u></p>
                             </div>
                         </td>
                         <td>
                             <div id="tanda-petugas">
                                 <p>Petugas Pelaksana</p>
-                                <p class="spasi-ttd"><u>BAYU</u></p>
+                                <p class="spasi-ttd"><u><?php echo $petugas; ?></u></p>
                             </div>
                         </td>
                     </tr>

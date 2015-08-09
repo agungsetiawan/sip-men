@@ -253,6 +253,10 @@
 	        $('#uploadPreview').css("display","none");
 	    });
 
+        $('#btn-print-penyambungan').on('click',function(e){
+            $('#form-penyambungan').attr("action","<?php echo site_url('lembar/penyambungan'); ?>");
+        });
+
 		function PreviewImage() {
 			document.getElementById("uploadPreview").style.display = "block";
 

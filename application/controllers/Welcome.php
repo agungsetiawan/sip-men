@@ -66,11 +66,4 @@ class Welcome extends CI_Controller {
 		redirect(site_url('welcome/login'));
 	}
 
-	public function lembar()
-	{
-		// $this->load->view('lembar_penyambungan');
-		$this->load->library('pdfgenerator');
-		$lembar=$this->load->view('lembar_penyambungan','',true);
-		$this->pdfgenerator->generate($lembar,'Form Penyambungan Sementara');
-	}
 }
