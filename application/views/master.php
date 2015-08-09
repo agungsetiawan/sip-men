@@ -257,6 +257,10 @@
             $('#form-penyambungan').attr("action","<?php echo site_url('lembar/penyambungan'); ?>");
         });
 
+        $('#btn-print-gangguan').on('click',function(e){
+            $('#form-gangguan').attr("action","<?php echo site_url('lembar/gangguan'); ?>");
+        });
+
 		function PreviewImage() {
 			document.getElementById("uploadPreview").style.display = "block";
 

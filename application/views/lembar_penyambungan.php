@@ -172,7 +172,7 @@
         </div>
 
         <div id="keterangan">
-        	<p>KETERANGN : Penyambungan sementara untuk keperluan <?php echo $kegiatan; ?>.</p>
+        	<p>KETERANGN : Penyambungan sementara <?php echo $kalimat; ?> <?php echo $kegiatan; ?>.</p>
         </div>
 
         <div id="content">

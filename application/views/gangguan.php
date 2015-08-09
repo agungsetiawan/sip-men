@@ -31,7 +31,7 @@
             </div>
             <div class="panel-body">
                 
-                <form role="form" method="POST" action="<?php echo site_url("gangguan/create"); ?>">
+                <form role="form" id="form-gangguan" method="POST" action="<?php echo site_url("gangguan/create"); ?>">
                     <div class="row">
                         <div class="col-lg-6">
                                 <label>ID Pelanggan</label>
@@ -130,7 +130,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <button type="submit" class="btn btn-default">Save</button>
-                            <button type="button" class="btn btn-info">Print</button>
+                            <button type="submit" id="btn-print-gangguan" class="btn btn-info">Print</button>
                             <button type="reset" id="reset" class="btn btn-danger">Delete</button>
                         </div>
                     </div>
