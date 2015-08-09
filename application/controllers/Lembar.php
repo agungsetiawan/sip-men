@@ -132,5 +132,10 @@ class Lembar extends CI_Controller {
         }
 	}
 
+	public function pemutusan()
+	{
+		$this->load->view('lembar_pemutusan');
+	}
+
 }
 
