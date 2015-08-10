@@ -28,4 +28,14 @@ class Penyambungan_model extends CI_Model {
         $this->db->order_by('penyambungan_sementara.id', 'DESC');
         return $this->db->get()->row();
     }
+
+    public function getByDate($tanggal)
+    {
+        $this->db->select('p.nama, ps.tujuan, ps.tanggal_pasang, ps.tanggal_cabut, ps.petugas_pasang');
+        $this->db->from('penyambungan_sementara ps');
+        $this->db->join('pelanggan p', 'ps.id_pelanggan=p.id_pelanggan');
+        $this->db->where('tanggal_pasang',$tanggal);
+        $this->db->or_where('tanggal_cabut', $tanggal);
+        return $this->db->get()->result();
+    }
 }

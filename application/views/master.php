@@ -56,48 +56,67 @@
                         <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>Deskiniel</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Hari ini (29-08-2016)</em>
-                                    </span>
-                                </div>
-                                <div>Pemasangan sementara keperluan konser</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>Paulo Margo</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Hari ini (29-08-2016)</em>
-                                    </span>
-                                </div>
-                                <div>Ganti Kwh meter di warung kopi usah kau kenang lagi</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>Kak Set</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Hari ini (29-08-2016)</em>
-                                    </span>
-                                </div>
-                                <div>Pencabutan di warung kopi tak kenal lara</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
+                        <?php
+                            $CI =& get_instance();
+                            $CI->load->model('penyambungan_model');
+                            $notifikasi = $CI->penyambungan_model->getByDate(date("Y-m-d"));
+                        ?>
+                        <?php
+                            if(count($notifikasi)==0)
+                            {
+                        ?>
+                                <li>
+                                    <a href="#">
+                                        <div>
+                                            <strong>Pemasangan & Pencabutan</strong>
+                                            <span class="pull-right text-muted">
+                                                <em>Hari ini (<?php echo date("d-m-Y")?>)</em>
+                                            </span>
+                                        </div>
+                                        <div>Tidak ada jadwal</div>
+                                    </a>
+                                </li>
+                        <?php
+                            }
+                            else
+                            {
+                        ?>
+                                <?php foreach($notifikasi as $n):?>
+                                <li>
+                                    <a href="#">
+                                        <div>
+                                            <strong><?php echo $n->petugas_pasang; ?></strong>
+                                            <span class="pull-right text-muted">
+                                                <em>Hari ini (<?php echo date("d-m-Y")?>)</em>
+                                            </span>
+                                        </div>
+                                        <?php if($n->tanggal_cabut==date("Y-m-d")) 
+                                                {
+                                        ?>
+                                                <div>Pencabutan - <?php echo $n->nama; ?></div>
+                                        <?php 
+                                                }
+                                                else
+                                                {
+                                        ?>
+                                                <div>Pemasangan sementara <?php echo $n->tujuan." - ".$n->nama ?></div>
+                                        <?php
+                                                }
+                                        ?>
+                                        
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <?php endforeach;?>
+                        <?php
+                            }
+                        ?>
+                        <!-- <li>
                             <a class="text-center" href="#">
                                 <strong>Read All Messages</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                     <!-- /.dropdown-messages -->
                 </li>
