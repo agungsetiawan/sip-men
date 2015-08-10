@@ -261,6 +261,10 @@
             $('#form-gangguan').attr("action","<?php echo site_url('lembar/gangguan'); ?>");
         });
 
+        $('#btn-print-pemutusan').on('click',function(e){
+            $('#form-pemutusan').attr("action","<?php echo site_url('lembar/pemutusan'); ?>");
+        });
+
 		function PreviewImage() {
 			document.getElementById("uploadPreview").style.display = "block";
 

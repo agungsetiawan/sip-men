@@ -172,7 +172,7 @@
         </div>
 
         <div id="keterangan">
-        	<p>KETERANGN : Pemutusan KWH Meter Sementara Kode SIP-MEN/09.</p>
+        	<p>KETERANGN : Pemutusan KWH Meter Sementara Kode <?php echo $idKwhGanti; ?>.</p>
         </div>
 
         <div id="content">
@@ -183,11 +183,11 @@
         	<table>
     			<tr>
     				<td class="two-hundred">Tanggal Pemasangan</td>
-    				<td>: 9 Agustus 2015</td>
+    				<td>: <?php echo $tanggalPasang; ?></td>
     			</tr>
     			<tr>
     				<td>Tanggal Pemutusan</td>
-    				<td>: 9 Agustus 2015</td>
+    				<td>: <?php echo $tanggalCabut; ?></td>
     			</tr>
     		</table>
 
@@ -196,46 +196,46 @@
     		<table id="table-two">
     			<tr>
     				<td class="two-hundred">ID. Pelanggan</td>
-    				<td>: 12345</td>
+    				<td>: <?php echo $idPelanggan; ?></td>
     			</tr>
     			<tr>
     				<td>Nama Pelanggan</td>
-    				<td>: Adon</td>
+    				<td>: <?php echo $nama; ?></td>
     			</tr>
                 <tr>
                     <td>Stand Awal</td>
-                    <td>: 0</td>
+                    <td>: <?php echo $standAwal; ?></td>
                 </tr>
                 <tr>
                     <td>Stand Akhir</td>
-                    <td>: 50</td>
+                    <td>: <?php echo $standAkhir; ?></td>
                 </tr>
                 <tr>
                     <td>Tarif</td>
-                    <td>: B1T</td>
+                    <td>: <?php echo $tarif; ?></td>
                 </tr>
                 <tr>
                     <td>Pemakaian kWh</td>
-                    <td>: 50</td>
+                    <td>: <?php echo $pemakaianKwh; ?></td>
                 </tr>
                 <tr>
-                    <td>Rupaiah per kWh</td>
-                    <td>: 10000</td>
+                    <td>Rupiah per kWh</td>
+                    <td>: <?php echo $rpkwh; ?></td>
                 </tr>
                 <tr>
                     <td>Total Biaya</td>
-                    <td>: RP 520000 *termasuk PPJ 9%</td>
+                    <td>: RP <?php echo $tagihan; ?> *termasuk PPJ 9%</td>
                 </tr>
                 <tr>
                     <td>Terbilang</td>
-                    <td>: lima ratus dua puluh ribu rupiah</td>
+                    <td>: <?php echo $terbilang; ?></td>
                 </tr>
     		</table>
 
             <p>Pelanggan bersedia membayar sesuai dengan jumlah pemakaian yang tertera di kwh meter</p>
 
     		<div id="tanggal">
-    			<p>Jayapura, 9 Agustus 2015</p>
+    			<p>Jayapura, <?php echo $tanggal; ?></p>
     		</div>
 
     		<div id="tanda-tangan">
@@ -244,13 +244,13 @@
                         <td>
                             <div id="tanda-pelanggan">
                                 <p>Pelanggan</p>
-                                <p class="spasi-ttd"><u>Adon</u></p>
+                                <p class="spasi-ttd"><u><?php echo $nama; ?></u></p>
                             </div>
                         </td>
                         <td>
                             <div id="tanda-petugas">
                                 <p>Petugas Pelaksana</p>
-                                <p class="spasi-ttd"><u>Waliyem</u></p>
+                                <p class="spasi-ttd"><u><?php echo $petugas; ?></u></p>
                             </div>
                         </td>
                     </tr>

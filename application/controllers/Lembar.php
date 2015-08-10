@@ -134,7 +134,66 @@ class Lembar extends CI_Controller {
 
 	public function pemutusan()
 	{
-		$this->load->view('lembar_pemutusan');
+		$this->form_validation->set_rules('id-pelanggan', 'ID Pelanggan', 'required');
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
+		$this->form_validation->set_rules('nohp', 'No HP', 'required');
+		$this->form_validation->set_rules('daya', 'Daya', 'required');
+		$this->form_validation->set_rules('tarif', 'Tarif', 'required');
+		$this->form_validation->set_rules('rpkwh', 'RP KWH', 'required');
+		$this->form_validation->set_rules('gangguan', 'Jenis Gangguan', 'required');
+		$this->form_validation->set_rules('tanggal-pasang', 'Tanggal Pasang', 'required');
+		$this->form_validation->set_rules('stand-awal', 'Stand Awal', 'required');
+		$this->form_validation->set_rules('petugas', 'Petugas', 'required');
+		$this->form_validation->set_rules('idkwhganti', 'Id KWH Ganti', 'required');
+		$this->form_validation->set_rules('tanggal-cabut', 'Tanggal Cabut', 'required');
+		$this->form_validation->set_rules('stand-akhir', 'Stand Akhir', 'required');
+		$this->form_validation->set_rules('petugas-cabut', 'Petugas Cabut', 'required');
+
+		$this->form_validation->set_message('required', '{field} harus di isi');
+
+		$this->form_validation->set_error_delimiters('<p class="help-block error">', '</p>');
+
+		if ($this->form_validation->run() == FALSE)
+        {
+            $this->template->load('master','pemutusan');
+        }
+        else
+        {
+        	$arrayBulan=array(
+				1=>"Januari",
+				2=>"Februari",
+				3=>"Maret",
+				4=>"April",
+				5=>"Mei",
+				6=>"Juni",
+				7=>"Juli",
+				8=>"Agustus",
+				9=>"September",
+				10=>"Oktober",
+				11=>"November",
+				12=>"Desember"
+			);
+
+			$data['idKwhGanti']=$this->input->post('idkwhganti');
+			$data['tanggalPasang']=$tanggalPasang=$this->input->post('tanggal-pasang');
+			$data['tanggalCabut']=$tanggalCabut=$this->input->post('tanggal-cabut');
+			$data['idPelanggan']=$this->input->post('id-pelanggan');
+			$data['nama']=$this->input->post("nama");
+			$data['standAwal']=$this->input->post('stand-awal');
+			$data['standAkhir']=$this->input->post('stand-akhir');
+			$data['tarif']=$this->input->post('tarif');
+			$data['pemakaianKwh']=$data['standAkhir']-$data['standAwal'];
+			$data['rpkwh']=$this->input->post('rpkwh');
+			$data['tagihan']=$data['pemakaianKwh']*$data['rpkwh'];
+			$data['terbilang']="Dua ratus lima puluh ribu rupiah";
+			$data['tanggal']=date("d")." ".$arrayBulan[date("n")]." ".date("Y");
+			$data['petugas']=$this->input->post('petugas-cabut');
+
+			$this->load->library('pdfgenerator');
+			$lembar=$this->load->view('lembar_pemutusan',$data,true);
+			$this->pdfgenerator->generate($lembar,'Form Pemutusan Kwh');
+        }
 	}
 
 }

@@ -30,7 +30,7 @@
                 Input Data Pemutusan
             </div>
             <div class="panel-body">
-                <form role="form" method="POST" action="<?php echo site_url("pemutusan/create"); ?>">
+                <form role="form" id="form-pemutusan" method="POST" action="<?php echo site_url("pemutusan/create"); ?>">
                     <div class="row">
                         <div class="col-lg-6">
                                 <input type="hidden" id="id-penyambungan" name="id-penyambungan" value="<?php echo set_value('id-penyambungan'); ?>">
@@ -129,7 +129,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <button type="submit" class="btn btn-default">Save</button>
-                            <button type="button" class="btn btn-info">Print</button>
+                            <button type="submit" id="btn-print-pemutusan" class="btn btn-info">Print</button>
                             <button type="reset" id="reset" class="btn btn-danger">Delete</button>
                         </div>
                     </div> <!-- row 2 -->
