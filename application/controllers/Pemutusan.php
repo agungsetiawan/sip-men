@@ -103,9 +103,16 @@ class Pemutusan extends CI_Controller {
 		$timePasang = strtotime($value->tanggal_pasang);
 		$value->tanggal_pasang = date('d-m-Y',$timePasang);
 
-		$timeCabut = strtotime($value->tanggal_cabut);
-		$value->tanggal_cabut = date('d-m-Y',$timeCabut);
-
+		$diff=date_diff(date_create('0000-00-00'),date_create($value->tanggal_cabut));
+		if($diff->d==0 && $diff->m==0 && $diff->y==0)
+		{
+			$value->tanggal_cabut="";
+		}
+		else
+		{
+			$timeCabut = strtotime($value->tanggal_cabut);
+			$value->tanggal_cabut = date('d-m-Y',$timeCabut);
+		}
 
 		$this->output
     		 ->set_content_type('application/json')
