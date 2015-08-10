@@ -224,7 +224,7 @@
                 </tr>
                 <tr>
                     <td>Total Biaya</td>
-                    <td>: RP <?php echo $tagihan; ?> *termasuk PPJ 9%</td>
+                    <td>: Rp <?php echo $tagihan; ?> *termasuk PPJ 9%</td>
                 </tr>
                 <tr>
                     <td>Terbilang</td>

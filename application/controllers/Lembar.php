@@ -7,6 +7,7 @@ class Lembar extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
+		$this->load->helper("terbilang");
 	}
 
 	public function penyambungan()
@@ -186,7 +187,10 @@ class Lembar extends CI_Controller {
 			$data['pemakaianKwh']=$data['standAkhir']-$data['standAwal'];
 			$data['rpkwh']=$this->input->post('rpkwh');
 			$data['tagihan']=$data['pemakaianKwh']*$data['rpkwh'];
-			$data['terbilang']="Dua ratus lima puluh ribu rupiah";
+
+			$data['tagihan']=$data['tagihan']+($data['tagihan']*0.09);
+			$data['terbilang']=terbilang($data['tagihan']);
+			
 			$data['tanggal']=date("d")." ".$arrayBulan[date("n")]." ".date("Y");
 			$data['petugas']=$this->input->post('petugas-cabut');
 

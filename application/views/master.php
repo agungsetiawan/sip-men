@@ -245,6 +245,12 @@
                    type: "GET",
                    url: "<?php echo base_url(); ?>index.php/pemutusan/search/"+dataString,
                    success: function(data){
+
+                        if(data.has_cabut==1){
+                            alert("Pencabutan Telah Dilakukan");
+                            return;
+                        }
+
                        $("#nama").val(data.nama);
                        $("#alamat").val(data.alamat);
                        $("#nohp").val(data.no_telepon);

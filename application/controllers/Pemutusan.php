@@ -11,6 +11,8 @@ class Pemutusan extends CI_Controller {
 		$this->load->model('penyambungan_model');
 		$this->load->model('pemutusan_model');
 
+		$this->load->helper("terbilang");
+
 		if(!$this->session->has_userdata('username'))
 		{
 			redirect(site_url('welcome/login'));
@@ -87,11 +89,15 @@ class Pemutusan extends CI_Controller {
 				'stand_akhir'=>$standAkhir,
 				'pemakaian_kwh'=>$pemakaianKwh,
 				'tagihan'=>$tagihan,
-				'terbilang'=>'Dua Ratus Juta Rupiah',
+				'terbilang'=>terbilang($tagihan),
 				'penyambungan_id'=>$idPenyambungan
 			);
 
 			$this->pemutusan_model->create($data);
+			$penyambungan=$this->penyambungan_model->getById($idPenyambungan);
+			$penyambungan->has_cabut=1;
+			$this->penyambungan_model->update($penyambungan,$idPenyambungan);
+
 			$this->session->set_flashdata('message', 'Data Pemutusan Berhasil ditambahkan');
 			redirect(site_url('pemutusan'));
         }

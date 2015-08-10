@@ -20,7 +20,7 @@ class Penyambungan_model extends CI_Model {
     }
 
     public function get_by_idpelanggan($idPelanggan){
-        $this->db->select('penyambungan_sementara.id,nama, alamat,no_telepon,daya,tarif,rpkwh,tujuan,tanggal_pasang,stand_awal,petugas_pasang,id_kwh_ganti,tanggal_cabut');
+        $this->db->select('penyambungan_sementara.id,nama, alamat,no_telepon,daya,tarif,rpkwh,tujuan,tanggal_pasang,stand_awal,petugas_pasang,id_kwh_ganti,tanggal_cabut, has_cabut');
         $this->db->where('penyambungan_sementara.id_pelanggan', $idPelanggan);
         // $this->db->not_like('tanggal_cabut', '0000-00-00');
         $this->db->from($this->table);
@@ -37,5 +37,15 @@ class Penyambungan_model extends CI_Model {
         $this->db->where('tanggal_pasang',$tanggal);
         $this->db->or_where('tanggal_cabut', $tanggal);
         return $this->db->get()->result();
+    }
+
+    public function getById($id)
+    {
+        $this->db->where('id',$id);
+        $this->db->get($this->table)->row();
+    }
+
+    public function update($data,$id){
+        $this->db->update($this->table, $data, array('id'=>$id));
     }
 }
