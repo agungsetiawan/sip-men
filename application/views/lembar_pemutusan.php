@@ -101,12 +101,12 @@
     	}
 
     	#tanda-pelanggan{
-    		margin-left: 25px;
+    		/*margin-left: 25px;*/
     		text-align: center;
     	}
 
     	#tanda-petugas{
-    		margin-left: 500px;
+    		/*margin-left: 500px;*/
     		text-align: center;
     	}
 
@@ -172,7 +172,7 @@
         </div>
 
         <div id="keterangan">
-        	<p>KETERANGN : Pemutusan KWH Meter Sementara Kode <?php echo $idKwhGanti; ?>.</p>
+        	<p>KETERANGAN : Pemutusan KWH Meter Sementara Kode <?php echo $idKwhGanti; ?>.</p>
         </div>
 
         <div id="content">

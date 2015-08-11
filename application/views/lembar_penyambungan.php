@@ -101,12 +101,14 @@
     	}
 
     	#tanda-pelanggan{
-    		margin-left: 25px;
+    		/*margin-left: 50px;
+            margin-right: 100px;*/
     		text-align: center;
     	}
 
     	#tanda-petugas{
-    		margin-left: 500px;
+    		/*margin-left: 400px;
+            margin-right: 50px;*/
     		text-align: center;
     	}
 
@@ -130,7 +132,21 @@
         }
     </style>
 </head>
-
+<?php
+//FOR DEBUG
+// $kalimat="untuk keperluan";
+// $kegiatan='Pameran Batu Aki';
+// $idPelanggan=123456789;
+// $nama="Akulo Sudjana";
+// $alamat="Bandung berapi";
+// $daya=33000;
+// $noHp=08912345;
+// $tarif="B1";
+// $idKwhGanti="SIP-MEN/1";
+// $standAwal=0;
+// $tanggal=date("d")." ".date("m")." ".date("Y");
+// $petugas="Polo Nakulo";
+?>
 <body>
     <div id="container">
         <div id="nomor-surat-container">
@@ -172,7 +188,7 @@
         </div>
 
         <div id="keterangan">
-        	<p>KETERANGN : Penyambungan sementara <?php echo $kalimat; ?> <?php echo $kegiatan; ?>.</p>
+        	<p>KETERANGAN : Penyambungan sementara <?php echo $kalimat; ?> <?php echo $kegiatan; ?>.</p>
         </div>
 
         <div id="content">
