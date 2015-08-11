@@ -40,7 +40,7 @@
                                                      'Supervisor'=>'Supervisor',
                                                      'Manajer Rayon'=>'Manajer Rayon',
                                                      'Operator'=>'Operator');
-                                      echo form_dropdown('level',$options,'',array('class'=>'form-control'));
+                                      echo form_dropdown('level',$options,set_value('level', 'default'),array('class'=>'form-control'));
                                     ?>
                                     <?php echo form_error('level'); ?>
                                 </div>

@@ -77,14 +77,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Gangguan</label>
-                                    <select name="gangguan" class="form-control">
-                                        <option>Relay Rusak</option>
-                                        <option>LCD Blank</option>
-                                        <option>Keypad Rusak</option>
-                                        <option>Mati Total</option>
-                                        <option>Lain-Lain</option>
-                                    </select>
-                                    <?php echo form_error('gangguan'); ?>
+                                    <?php
+                                      $options=array('Relay Rusak',
+                                                     'LCD Blank',
+                                                     'Keypad Rusak',
+                                                     'Mati Total',
+                                                     'Lain');
+                                      echo form_dropdown('gangguan',$options,set_value('gangguan', 'default'),array('class'=>'form-control'));
+                                    ?>
                                 </div>
                         </div>
                         <div class="col-lg-6">
@@ -100,14 +100,15 @@
                             </div>
                             <div class="form-group">
                                 <label>ID KWH M Ganti</label>
-                                <select name="idkwhganti" class="form-control">
-                                    <option>SIP-MEN/01</option>
-                                    <option>SIP-MEN/02</option>
-                                    <option>SIP-MEN/03</option>
-                                    <option>SIP-MEN/04</option>
-                                    <option>SIP-MEN/05</option>
-                                </select>
-                                <?php echo form_error('idkwhganti'); ?>
+                                <?php
+                                    $sipmen=array();
+
+                                    for($i=1;$i<=50;$i++){
+                                        $sipmen[]="SIP-MEN/".$i;
+                                    }
+
+                                    echo form_dropdown('idkwhganti',$sipmen,set_value('idkwhganti', 'default'),array('class'=>'form-control'));
+                                ?>
                             </div>
                             <div class="form-group">
                                 <label>Stand Awal</label>

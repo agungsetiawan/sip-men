@@ -7,6 +7,7 @@ class Lembar extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
+		$this->load->model('tdl_model');
 		$this->load->helper("terbilang");
 	}
 
@@ -18,6 +19,7 @@ class Lembar extends CI_Controller {
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
 		$this->form_validation->set_rules('nohp', 'No HP', 'required');
+		$this->form_validation->set_rules('jenis-tarif', 'Jenis Tarif', 'required');
 		$this->form_validation->set_rules('daya', 'Daya', 'required');
 		$this->form_validation->set_rules('kegiatan', 'Jenis Kegiatan', 'required');
 		$this->form_validation->set_rules('tanggal-permintaan', 'Tanggal Permintaan', 'required');
@@ -59,7 +61,21 @@ class Lembar extends CI_Controller {
 			$data['alamat']=$this->input->post('alamat');
 			$data['daya']=$this->input->post('daya');
 			$data['noHp']=$this->input->post('nohp');
-			$data['tarif']=2200;
+
+			$jenisTarif=$this->input->post('jenis-tarif');
+			if($jenisTarif=="rumahtangga"){
+				$tdl=$this->tdl_model->getByJenisAndDaya('R',$data['daya']);	
+			}else if($jenisTarif=="bisnis"){
+				$tdl=$this->tdl_model->getByJenisAndDaya('B',$data['daya']);
+			}else if($jenisTarif=="industri"){
+				$tdl=$this->tdl_model->getByJenisAndDaya('I',$data['daya']);
+			}else if($jenisTarif=="sosial"){
+				$tdl=$this->tdl_model->getByJenisAndDaya('S',$data['daya']);
+			}else if($jenisTarif=="pemerintah"){
+				$tdl=$this->tdl_model->getByJenisAndDaya('P',$data['daya']);
+			}
+
+			$data['tarif']=$tdl->tarif;
 
 			$data['idKwhGanti']=$this->input->post('idkwhganti');
 			$data['standAwal']=$this->input->post('stand-awal');

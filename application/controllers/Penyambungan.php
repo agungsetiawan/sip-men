@@ -8,6 +8,7 @@ class Penyambungan extends CI_Controller {
         parent::__construct();
         $this->load->model('penyambungan_model');
         $this->load->model('pelanggan_model');
+        $this->load->model('tdl_model');
 		$this->load->library('form_validation');
 
 		if(!$this->session->has_userdata('username'))
@@ -28,6 +29,7 @@ class Penyambungan extends CI_Controller {
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
 		$this->form_validation->set_rules('nohp', 'No HP', 'required');
+		$this->form_validation->set_rules('jenis-tarif', 'Jenis Tarif', 'required');
 		$this->form_validation->set_rules('daya', 'Daya', 'required');
 		$this->form_validation->set_rules('kegiatan', 'Jenis Kegiatan', 'required');
 		$this->form_validation->set_rules('tanggal-permintaan', 'Tanggal Permintaan', 'required');
@@ -52,8 +54,23 @@ class Penyambungan extends CI_Controller {
 			$alamat=$this->input->post('alamat');
 			$noHp=$this->input->post('nohp');
 			$daya=$this->input->post('daya');
-			$tarif=2200;
-			$rpkwh=6000;
+
+			$jenisTarif=$this->input->post('jenis-tarif');
+			if($jenisTarif=="rumahtangga"){
+				$tdl=$this->tdl_model->getByJenisAndDaya('R',$daya);	
+			}else if($jenisTarif=="bisnis"){
+				$tdl=$this->tdl_model->getByJenisAndDaya('B',$daya);
+			}else if($jenisTarif=="industri"){
+				$tdl=$this->tdl_model->getByJenisAndDaya('I',$daya);
+			}else if($jenisTarif=="sosial"){
+				$tdl=$this->tdl_model->getByJenisAndDaya('S',$daya);
+			}else if($jenisTarif=="pemerintah"){
+				$tdl=$this->tdl_model->getByJenisAndDaya('P',$daya);
+			}
+
+			$tarif=$tdl->tarif;
+			$rpkwh=$tdl->rpkwh;
+
 			$kegiatan=$this->input->post('kegiatan');
 			$tanggalPermintaan=$this->input->post('tanggal-permintaan');
 			$tanggalPasang=$this->input->post('tanggal-pasang');

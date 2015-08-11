@@ -52,9 +52,21 @@
                                     <?php echo form_error('nohp'); ?>
                                 </div>
                                 <div class="form-group">
-                                    <label >Daya</label>
-                                  	<input name="daya" value="<?php echo set_value('daya'); ?>" class="form-control">
+                                    <label>Daya</label>
+                                    <input name="daya" value="<?php echo set_value('daya'); ?>" class="form-control">
                                     <?php echo form_error('daya'); ?>
+                                </div>
+                                <div class="form-group">
+                                    <label >Jenis Tarif</label>
+                                  	<!-- <input name="jenis-tarif" value="<?php echo set_value('jenis-tarif'); ?>" class="form-control"> -->
+                                    <?php
+                                      $options=array('rumahtangga'=>'Rumah Tangga',
+                                                     'bisnis'=>'Bisnis',
+                                                     'industri'=>'Industri',
+                                                     'sosial'=>'Sosial',
+                                                     'pemerintah'=>'Pemerintah');
+                                      echo form_dropdown('jenis-tarif',$options,set_value('jenis-tarif', 'default'),array('class'=>'form-control'));
+                                    ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Kegiatan</label>
@@ -80,13 +92,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>ID KWH M Ganti</label>
-                                    <select name="idkwhganti" class="form-control">
-                                        <option>SIP-MEN/01</option>
-                                        <option>SIP-MEN/02</option>
-                                        <option>SIP-MEN/03</option>
-                                        <option>SIP-MEN/04</option>
-                                        <option>SIP-MEN/05</option>
-                                    </select>
+                                    <?php
+                                        $sipmen=array();
+
+                                        for($i=1;$i<=50;$i++){
+                                            $sipmen["SIP-MEN/".$i]="SIP-MEN/".$i;
+                                        }
+
+                                        echo form_dropdown('idkwhganti',$sipmen,set_value('idkwhganti', 'default'),array('class'=>'form-control'));
+                                    ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Stand Awal</label>
