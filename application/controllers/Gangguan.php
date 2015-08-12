@@ -177,4 +177,12 @@ class Gangguan extends CI_Controller {
 			redirect(site_url('gangguan/data'));
         }
 	}
+
+	public function delete($id){
+		onlyFor('Admin');
+
+		$this->penyambungan_model->delete($id);
+		$this->session->set_flashdata('message', 'Data Gangguan Berhasil Dihapus');
+		redirect(site_url('gangguan/data'));
+	}
 }
