@@ -193,7 +193,16 @@
                         <?php
                         }
                         ?>
-                        
+                        <?php
+                        if($this->session->userdata('level')!='Operator')
+                        {
+                        ?>
+                        <li>
+                            <a href="<?php echo site_url("pelanggan"); ?>"><i class="fa fa-users fa-fw"></i> Data Pelanggan</a>
+                        </li>
+                        <?php
+                        }
+                        ?>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
