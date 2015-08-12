@@ -12,6 +12,7 @@ class Pemutusan extends CI_Controller {
 		$this->load->model('pemutusan_model');
 
 		$this->load->helper("terbilang");
+		$this->load->helper("pembulatan");
 
 		if(!$this->session->has_userdata('username'))
 		{
@@ -79,7 +80,8 @@ class Pemutusan extends CI_Controller {
 
 			$pemakaianKwh=$standAkhir-$standAwal;
 			$tagihan=$pemakaianKwh*$rpkwh;
-			
+			$tagihan=$tagihan+($tagihan*0.09);
+			$tagihan=pembulatan($tagihan);
 			$data=array(
 				'id_pelanggan'=>$idPelanggan,
 				'no_telepon'=>$noHp,
