@@ -42,10 +42,21 @@ class Penyambungan_model extends CI_Model {
     public function getById($id)
     {
         $this->db->where('id',$id);
-        $this->db->get($this->table)->row();
+        return $this->db->get($this->table)->row();
     }
 
     public function update($data,$id){
         $this->db->update($this->table, $data, array('id'=>$id));
+    }
+
+    public function getAll()
+    {
+        $this->db->not_like('tanggal_cabut', '0000-00-00');
+        return $this->db->get($this->table)->result();
+    }
+
+    public function delete($id){
+        $this->db->where('id', $id);
+        $this->db->delete($this->table);
     }
 }

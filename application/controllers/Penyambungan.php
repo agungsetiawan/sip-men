@@ -117,7 +117,93 @@ class Penyambungan extends CI_Controller {
 			$this->session->set_flashdata('message', 'Data Penyambungan Berhasil ditambahkan');
 			redirect(site_url('penyambungan'));
         }
+	}
 
+	public function data()
+	{
+		$data['penyambungan']=$this->penyambungan_model->getAll();
+
+		$this->template->load('master','penyambungan_data',$data);
+	}
+
+	public function edit($id)
+	{
+		$data['penyambungan']=$this->penyambungan_model->getById($id);
 		
+		$timePermintaan = strtotime($data['penyambungan']->tanggal_permohonan);
+		$data['penyambungan']->tanggal_permohonan = date('d-m-Y',$timePermintaan);
+
+		$timePasang = strtotime($data['penyambungan']->tanggal_pasang);
+		$data['penyambungan']->tanggal_pasang = date('d-m-Y',$timePasang);
+
+		$timeCabut = strtotime($data['penyambungan']->tanggal_cabut);
+		$data['penyambungan']->tanggal_cabut = date('d-m-Y',$timeCabut);
+
+		$this->template->load('master','penyambungan_edit',$data);
+	}
+
+	public function editAction()
+	{
+		$this->form_validation->set_rules('nohp', 'No HP', 'required');
+		$this->form_validation->set_rules('kegiatan', 'Jenis Kegiatan', 'required');
+		$this->form_validation->set_rules('tanggal-permintaan', 'Tanggal Permintaan', 'required');
+		$this->form_validation->set_rules('tanggal-pasang', 'Tanggal Pasang', 'required');
+		$this->form_validation->set_rules('tanggal-cabut', 'Tanggal Cabut', 'required');
+		$this->form_validation->set_rules('idkwhganti', 'Id KWH Ganti', 'required');
+		$this->form_validation->set_rules('stand-awal', 'Stand Awal', 'required');
+		$this->form_validation->set_rules('petugas-pasang', 'Petugas', 'required');
+
+		$this->form_validation->set_message('required', '{field} harus di isi');
+
+		$this->form_validation->set_error_delimiters('<p class="help-block error">', '</p>');
+
+		if ($this->form_validation->run() == FALSE)
+        {
+           $id=$this->input->post('id-penyambungan-true');
+           $this->edit($id);
+        }
+        else
+        {
+        	$id=$this->input->post('id-penyambungan-true');
+			$noHp=$this->input->post('nohp');
+			$kegiatan=$this->input->post('kegiatan');
+			$tanggalPermintaan=$this->input->post('tanggal-permintaan');
+			$tanggalPasang=$this->input->post('tanggal-pasang');
+			$tanggalCabut=$this->input->post('tanggal-cabut');
+			$idKwhGanti=$this->input->post('idkwhganti');
+			$standAwal=$this->input->post('stand-awal');
+			$petugas=$this->input->post('petugas-pasang');
+
+			$timePermintaan = strtotime($tanggalPermintaan);
+			$newTanggalPermintaan = date('Y-m-d',$timePermintaan);
+
+			$timePasang = strtotime($tanggalPasang);
+			$newTanggalPasang = date('Y-m-d',$timePasang);
+
+			$timeCabut = strtotime($tanggalCabut);
+			$newTanggalCabut = date('Y-m-d',$timeCabut);
+
+
+			$data=array(
+				'no_telepon'=>$noHp,
+				'tujuan'=>$kegiatan,
+				'tanggal_permohonan'=>$newTanggalPermintaan,
+				'tanggal_pasang'=>$newTanggalPasang,
+				'tanggal_cabut'=>$newTanggalCabut,
+				'id_kwh_ganti'=>$idKwhGanti,
+				'stand_awal'=>$standAwal,
+				'petugas_pasang'=>$petugas
+			);
+
+			$this->penyambungan_model->update($data,$id);
+			$this->session->set_flashdata('message', 'Data Penyambungan Berhasil diperbaharui');
+			redirect(site_url('penyambungan/data'));
+        }
+	}
+
+	public function delete($id){
+		$this->penyambungan_model->delete($id);
+		$this->session->set_flashdata('message', 'Data Penyambungan Berhasil Dihapus');
+		redirect(site_url('penyambungan/data'));
 	}
 }

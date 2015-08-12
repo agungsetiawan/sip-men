@@ -158,29 +158,41 @@
                             <a href="<?php echo site_url("pemutusan"); ?>"><i class="fa fa-legal fa-fw"></i> Pemutusan</a>
                         </li>
                         <?php
-
-                            if($this->session->userdata('level')!='Operator')
-                            {
+                        if($this->session->userdata('level')!='Operator')
+                        {
                         ?>
-                         <li>
-                            <a href="<?php echo site_url("monitoring"); ?>"><i class="fa fa-table fa-fw"></i> Monitoring Data</a>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Monitoring Data<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo site_url("monitoring"); ?>"><i class="fa fa-table fa-fw"></i>Gabungan</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo site_url("penyambungan/data"); ?>"><i class="fa fa-flash fa-fw"></i>Penyambungan</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-fire fa-fw"></i>Gangguan</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-legal fa-fw"></i>Pemutusan</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         <?php
-                            }
-
+                        }
                         ?>
-                       
-                       <?php
 
-                            if($this->session->userdata('level')=='Admin')
-                            {
+                       <?php
+                        if($this->session->userdata('level')=='Admin')
+                        {
                         ?>
                         <li>
                             <a href="<?php echo site_url("pengguna"); ?>"><i class="fa fa-user fa-fw"></i> Data Pengguna</a>
                         </li>
                         <?php
-                            }
-                       ?>
+                        }
+                        ?>
                         
                     </ul>
                 </div>
