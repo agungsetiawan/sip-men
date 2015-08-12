@@ -5,6 +5,10 @@
     <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
+<?php
+if($this->session->userdata('level')!='Operator')
+{
+?>
 <div class="row">
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-primary">
@@ -95,6 +99,9 @@
         </div>
     </div>
 </div>
+<?php
+}
+?>
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-primary">
