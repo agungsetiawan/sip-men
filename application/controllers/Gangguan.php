@@ -89,12 +89,16 @@ class Gangguan extends CI_Controller {
 
 	public function data()
 	{
+		restrictedFor(array('Operator'));
+
 		$data['penyambungan']=$this->gangguan_model->getAll();
 		$this->template->load('master','gangguan_data',$data);
 	}
 
 	public function edit($id)
 	{
+		onlyFor('Admin');
+
 		$data['gangguan']=$this->penyambungan_model->getById($id);
 
 		//TODO
@@ -122,6 +126,8 @@ class Gangguan extends CI_Controller {
 
 	public function editAction()
 	{
+		onlyFor('Admin');
+
 		$this->form_validation->set_rules('nohp', 'No HP', 'required');
 		$this->form_validation->set_rules('gangguan', 'Jenis Gangguan', 'required');
 		$this->form_validation->set_rules('tanggal-gangguan', 'Tanggal Gangguan', 'required');

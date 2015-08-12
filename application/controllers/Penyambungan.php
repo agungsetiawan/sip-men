@@ -121,6 +121,8 @@ class Penyambungan extends CI_Controller {
 
 	public function data()
 	{
+		restrictedFor(array('Operator'));
+
 		$data['penyambungan']=$this->penyambungan_model->getAll();
 
 		$this->template->load('master','penyambungan_data',$data);
@@ -128,6 +130,8 @@ class Penyambungan extends CI_Controller {
 
 	public function edit($id)
 	{
+		onlyFor('Admin');
+
 		//TODO
 		//IF Gangguan
 
@@ -147,6 +151,8 @@ class Penyambungan extends CI_Controller {
 
 	public function editAction()
 	{
+		onlyFor('Admin');
+
 		$this->form_validation->set_rules('nohp', 'No HP', 'required');
 		$this->form_validation->set_rules('kegiatan', 'Jenis Kegiatan', 'required');
 		$this->form_validation->set_rules('tanggal-permintaan', 'Tanggal Permintaan', 'required');
@@ -205,6 +211,8 @@ class Penyambungan extends CI_Controller {
 	}
 
 	public function delete($id){
+		onlyFor('Admin');
+
 		$this->penyambungan_model->delete($id);
 		$this->session->set_flashdata('message', 'Data Penyambungan Berhasil Dihapus');
 		redirect(site_url('penyambungan/data'));

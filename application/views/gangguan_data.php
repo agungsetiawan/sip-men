@@ -45,7 +45,14 @@
                                 <th>Stand Awal</th>
                                 <th>Petugas Pasang</th>
                                 <th>Sudah Dicabut</th>
+                                <?php
+                                if($this->session->userdata('level')=='Admin')
+                                {
+                                ?>
                                 <th>Aksi</th>
+                                <?php
+                                }
+                                ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -69,8 +76,15 @@
                                         $cabut="Belum";
                                 ?>
                                 <td><?php echo $cabut; ?></td>
+                                <?php
+                                if($this->session->userdata('level')=='Admin')
+                                {
+                                ?>
                                 <td><a href="<?php echo site_url('gangguan/edit/')."/".$p->id; ?>" class="btn btn-warning">Edit</a> 
                                     <a href="<?php echo site_url('gangguan/delete/')."/".$p->id; ?>" class="btn btn-danger">Hapus</a></td>
+                                <?php
+                                }
+                                ?>
                             </tr>
                             <?php $i++; ?>
                             <?php endforeach; ?>
