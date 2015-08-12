@@ -128,6 +128,9 @@ class Penyambungan extends CI_Controller {
 
 	public function edit($id)
 	{
+		//TODO
+		//IF Gangguan
+
 		$data['penyambungan']=$this->penyambungan_model->getById($id);
 		
 		$timePermintaan = strtotime($data['penyambungan']->tanggal_permohonan);

@@ -171,7 +171,7 @@
                                     <a href="<?php echo site_url("penyambungan/data"); ?>"><i class="fa fa-flash fa-fw"></i>Penyambungan</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-fire fa-fw"></i>Gangguan</a>
+                                    <a href="<?php echo site_url("gangguan/data"); ?>"><i class="fa fa-fire fa-fw"></i>Gangguan</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="fa fa-legal fa-fw"></i>Pemutusan</a>

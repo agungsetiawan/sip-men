@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Data Penyambungan Sementara</h1>
+        <h1 class="page-header">Data Penyambungan Gangguan</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -26,7 +26,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Penyambungan
+                Gangguan
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -69,8 +69,8 @@
                                         $cabut="Belum";
                                 ?>
                                 <td><?php echo $cabut; ?></td>
-                                <td><a href="<?php echo site_url('penyambungan/edit/')."/".$p->id; ?>" class="btn btn-warning">Edit</a> 
-                                    <a href="<?php echo site_url('penyambungan/delete/')."/".$p->id; ?>" class="btn btn-danger">Hapus</a></td>
+                                <td><a href="<?php echo site_url('gangguan/edit/')."/".$p->id; ?>" class="btn btn-warning">Edit</a> 
+                                    <a href="<?php echo site_url('gangguan/delete/')."/".$p->id; ?>" class="btn btn-danger">Hapus</a></td>
                             </tr>
                             <?php $i++; ?>
                             <?php endforeach; ?>

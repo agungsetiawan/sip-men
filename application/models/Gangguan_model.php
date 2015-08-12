@@ -18,4 +18,10 @@ class Gangguan_model extends CI_Model {
 		$this->db->from($this->table);
 		return $this->db->count_all_results(); 
     }
+
+    public function getAll()
+    {
+        $this->db->like('tanggal_cabut', '0000-00-00');
+        return $this->db->get($this->table)->result();
+    }
 }
