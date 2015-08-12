@@ -13,6 +13,18 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
+                <?php
+                if(count($monitoring)==0)
+                {
+                ?>
+                <div class="alert alert-warning">
+                    Tidak ada data
+                </div>
+                <?php
+                }
+                else
+                {
+                ?>
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
@@ -72,6 +84,9 @@
                         </tbody>
                     </table>
                 </div>
+                <?php
+                }
+                ?>
                 <!-- /.table-responsive -->
             </div>
             <!-- /.panel-body -->
