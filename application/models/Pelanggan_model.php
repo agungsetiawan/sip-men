@@ -17,6 +17,10 @@ class Pelanggan_model extends CI_Model {
         $this->db->insert($this->table, $data);
     }
 
+    public function update($data,$id){
+        $this->db->update($this->table, $data, array('id'=>$id));
+    }
+
     public function count()
     {
         return $this->db->count_all_results($this->table);
@@ -25,5 +29,10 @@ class Pelanggan_model extends CI_Model {
     public function getAll()
     {
         return $this->db->get($this->table)->result();
+    }
+
+    public function delete($id){
+        $this->db->where('id_pelanggan', $id);
+        $this->db->delete($this->table);
     }
 }

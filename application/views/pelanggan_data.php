@@ -82,8 +82,8 @@
                                 if($this->session->userdata('level')=='Admin')
                                 {
                                 ?>
-                                <td><a href="<?php echo site_url('pelanggan/edit/')."/".$p->id; ?>" class="btn btn-warning">Edit</a> 
-                                    <a href="<?php echo site_url('pelanggan/delete/')."/".$p->id; ?>" class="btn btn-danger">Hapus</a></td>
+                                <td><a href="<?php echo site_url('pelanggan/edit/')."/".$p->id_pelanggan; ?>" class="btn btn-warning">Edit</a> 
+                                    <a href="<?php echo site_url('pelanggan/delete/')."/".$p->id_pelanggan; ?>" class="btn btn-danger">Hapus</a></td>
                                 <?php
                                 }
                                 ?>
