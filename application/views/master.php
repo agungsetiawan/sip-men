@@ -242,7 +242,11 @@
 		    $('.date-picker')
 		        .datepicker({
 		            format: 'dd-mm-yyyy'
-		        });		     
+		        });		  
+
+            $('.date-picker').on('changeDate',function(){
+                $(this).datepicker('hide');
+            });   
 
 
             $('#button-cari-pelanggan').on('click', function(){
