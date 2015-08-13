@@ -24,6 +24,22 @@ class Pelanggan extends CI_Controller {
     		 ->set_output(json_encode($value));
 	}
 
+	public function searchAutoComplete()
+	{
+		$id=$this->input->get('term');
+		$value=$this->pelanggan_model->searchByIdPelanggan($id);
+
+		$json=array();
+		foreach($value as $v){
+			$json[]=array('label'=>$v->id_pelanggan." - ".$v->nama,
+						  'value'=>$v->id_pelanggan);
+		}
+
+		$this->output
+    		 ->set_content_type('application/json')
+    		 ->set_output(json_encode($json));
+	}
+
 	public function index()
 	{
 		restrictedFor(array('Operator'));

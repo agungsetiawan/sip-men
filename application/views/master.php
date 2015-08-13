@@ -236,6 +236,11 @@
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
 
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+
+        <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <link rel="stylesheet" type="text/css"
+        href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
 	<script type="text/javascript">
 
 		$(document).ready(function() {
@@ -295,6 +300,11 @@
                        
                    }
                  });
+            });
+
+            $("#cari-pelanggan").autocomplete({
+                source:"<?php echo base_url(); ?>index.php/pelanggan/searchAutoComplete",
+                minLength:1
             });
 
 		 });

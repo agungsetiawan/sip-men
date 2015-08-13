@@ -13,6 +13,11 @@ class Pelanggan_model extends CI_Model {
         return $this->db->get($this->table)->row();
     }
 
+    public function searchByIdPelanggan($idPelanggan){
+        $this->db->like('id_pelanggan', $idPelanggan,'both');
+        return $this->db->get($this->table)->result();
+    }
+
     public function create($data){
         $this->db->insert($this->table, $data);
     }
