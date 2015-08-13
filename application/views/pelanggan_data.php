@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Data Penyambungan Sementara</h1>
+        <h1 class="page-header">Data Pelanggan</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -21,7 +21,11 @@
 <?php    
   }
 ?>
-
+<div class="row">
+    <div class="col-lg-12 text-right" style="margin-bottom:10px">
+        <a class="btn btn-primary" href="<?php echo site_url('pelanggan/create'); ?>">Tambah</a>
+    </div>
+</div>
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
