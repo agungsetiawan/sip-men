@@ -23,9 +23,9 @@ if($this->session->userdata('level')!='Operator')
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="<?php echo site_url('penyambungan/data') ?>">
                 <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
+                    <span class="pull-left">Lihat Detail</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </div>
@@ -45,15 +45,19 @@ if($this->session->userdata('level')!='Operator')
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="<?php echo site_url('gangguan/data') ?>">
                 <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
+                    <span class="pull-left">Lihat Detail</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </div>
             </a>
         </div>
     </div>
+    <?php
+    if($this->session->userdata('level')=='Admin')
+    {
+    ?>
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-yellow">
             <div class="panel-heading">
@@ -69,13 +73,16 @@ if($this->session->userdata('level')!='Operator')
             </div>
             <a href="<?php echo site_url('pengguna') ?>">
                 <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
+                    <span class="pull-left">Lihat Detail</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </div>
             </a>
         </div>
     </div>
+    <?php
+    }
+    ?>
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-red">
             <div class="panel-heading">
@@ -89,9 +96,9 @@ if($this->session->userdata('level')!='Operator')
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="<?php echo site_url('pelanggan') ?>">
                 <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
+                    <span class="pull-left">Lihat Detail</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </div>
