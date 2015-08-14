@@ -67,9 +67,20 @@ class Pengguna extends CI_Controller {
 		
 	}
 
-	public function edit($idPengguna)
+	public function edit($idPengguna=0)
 	{
+		if($idPengguna==0){
+			$this->template->load('master','404/not_found');
+			return;
+		}
+
 		$pengguna=$this->pengguna_model->get_by_id_pengguna($idPengguna);
+
+		if(is_null($pengguna)){
+			$this->template->load('master','404/not_found');
+			return;
+		}
+
 		$data['pengguna']=$pengguna;
 		$this->template->load('master','data_pengguna_edit', $data);
 	}

@@ -109,11 +109,21 @@ class Pelanggan extends CI_Controller {
 	}
 
 
-	public function edit($id)
+	public function edit($id=0)
 	{
 		onlyFor('Admin');
 
+		if($id==0){
+			$this->template->load('master','404/not_found');
+			return;
+		}
+
 		$pelanggan=$this->pelanggan_model->get_by_idpelanggan($id);
+
+		if(is_null($pelanggan)){
+			$this->template->load('master','404/not_found');
+			return;
+		}
 
 		$tarif=$pelanggan->tarif;
 		$kode=substr($tarif, 0,1);

@@ -128,15 +128,28 @@ class Penyambungan extends CI_Controller {
 		$this->template->load('master','penyambungan_data',$data);
 	}
 
-	public function edit($id)
+	public function edit($id=0)
 	{
 		onlyFor('Admin');
 
-		//TODO
-		//IF Gangguan
+		if($id==0){
+			$this->template->load('master','404/not_found');
+			return;
+		}
 
 		$data['penyambungan']=$this->penyambungan_model->getById($id);
-		
+
+		if(is_null($data['penyambungan'])){
+			$this->template->load('master','404/not_found');
+			return;
+		}
+
+		//IF Gangguan
+		if($data['penyambungan']->tanggal_cabut=="0000-00-00"){
+			$this->template->load('master','404/not_found');
+			return;
+		}
+
 		$timePermintaan = strtotime($data['penyambungan']->tanggal_permohonan);
 		$data['penyambungan']->tanggal_permohonan = date('d-m-Y',$timePermintaan);
 

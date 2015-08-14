@@ -95,14 +95,27 @@ class Gangguan extends CI_Controller {
 		$this->template->load('master','gangguan_data',$data);
 	}
 
-	public function edit($id)
+	public function edit($id=0)
 	{
 		onlyFor('Admin');
 
+		if($id==0){
+			$this->template->load('master','404/not_found');
+			return;
+		}
+
 		$data['gangguan']=$this->penyambungan_model->getById($id);
 
-		//TODO
+		if(is_null($data['gangguan'])){
+			$this->template->load('master','404/not_found');
+			return;
+		}
+
 		//IF Penyambungan
+		if($data['gangguan']->tanggal_cabut!="0000-00-00"){
+			$this->template->load('master','404/not_found');
+			return;
+		}
 		
 		$timePermintaan = strtotime($data['gangguan']->tanggal_permohonan);
 		$data['gangguan']->tanggal_permohonan = date('d-m-Y',$timePermintaan);
