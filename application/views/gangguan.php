@@ -78,11 +78,11 @@
                                 <div class="form-group">
                                     <label>Jenis Gangguan</label>
                                     <?php
-                                      $options=array('Relay Rusak',
-                                                     'LCD Blank',
-                                                     'Keypad Rusak',
-                                                     'Mati Total',
-                                                     'Lain');
+                                      $options=array('Relay Rusak'=>'Relay Rusak',
+                                                     'LCD Blank'=>'LCD Blank',
+                                                     'Keypad Rusak'=>'Keypad Rusak',
+                                                     'Mati Total'=>'Mati Total',
+                                                     'Lain'=>'Lain');
                                       echo form_dropdown('gangguan',$options,set_value('gangguan', 'default'),array('class'=>'form-control'));
                                     ?>
                                 </div>
