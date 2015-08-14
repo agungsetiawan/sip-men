@@ -49,6 +49,18 @@ class Penyambungan extends CI_Controller {
         }
         else
         {
+        	$config['upload_path']='./assets/img/';
+            $config['allowed_types']='gif|jpg|png';
+            $config['file_name']=md5(date("H:i:s"));
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload())
+            {
+                $this->session->set_flashdata('error',$this->upload->display_errors());
+                $this->template->load('master','penyambungan_sementara');
+                return;
+            }
+
         	$idPelanggan=$this->input->post('id-pelanggan');
 			$nama=$this->input->post('nama');
 			$alamat=$this->input->post('alamat');
@@ -109,7 +121,8 @@ class Penyambungan extends CI_Controller {
 				'tanggal_cabut'=>$newTanggalCabut,
 				'id_kwh_ganti'=>$idKwhGanti,
 				'stand_awal'=>$standAwal,
-				'petugas_pasang'=>$petugas
+				'petugas_pasang'=>$petugas,
+				'image_name'=>$config['file_name'].".".pathinfo($_FILES['userfile']['name'], PATHINFO_EXTENSION)
 			);
 
 			$this->pelanggan_model->create($dataPelanggan);

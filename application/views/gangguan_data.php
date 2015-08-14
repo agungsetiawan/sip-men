@@ -56,6 +56,7 @@
                                 <th>ID Kwh Ganti</th>
                                 <th>Stand Awal</th>
                                 <th>Petugas Pasang</th>
+                                <th>Gambar</th>
                                 <th>Sudah Dicabut</th>
                                 <?php
                                 if($this->session->userdata('level')=='Admin')
@@ -81,6 +82,7 @@
                                 <td><?php echo $p->id_kwh_ganti; ?></td>
                                 <td><?php echo $p->stand_awal; ?></td>
                                 <td><?php echo $p->petugas_pasang; ?></td>
+                                <td><img style="width: 300px; height: 200px" src="<?php echo base_url('');?>assets/img/<?php echo $p->image_name?>"/></td>
                                 <?php
                                     if($p->has_cabut==1)
                                         $cabut="Sudah";

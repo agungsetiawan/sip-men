@@ -20,6 +20,23 @@
 <?php    
   }
 ?>
+
+<?php 
+
+  if ($this->session->userdata('error') !='')
+  { ?>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <?php echo $this->session->userdata('error'); ?>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+<?php    
+  }
+?>
 <!-- /.row -->
 <div class="row">
     <div class="col-lg-12">
@@ -28,7 +45,7 @@
                 Input Data Pelanggan & Penyambungan Sementara
             </div>
             <div class="panel-body">
-                <form role="form" id="form-penyambungan" action="<?php echo site_url('penyambungan/create') ?>" method="POST">
+                <form role="form" id="form-penyambungan" action="<?php echo site_url('penyambungan/create') ?>" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-6">
 							    <div class="form-group">
@@ -115,7 +132,7 @@
                                 <img id="uploadPreview" class="img-responsive img-thumbnail" src="" alt="Foto Stand Awal" style="width: 300px; height: 200px; display : none;">
                                 <div class="form-group">
                                     <label>Foto Stand Awal</label>
-                                    <input type="file" class="form-control" id="uploadImage" onchange="PreviewImage();">
+                                    <input type="file" name="userfile" class="form-control" id="uploadImage" onchange="PreviewImage();">
                                 </div>
                                                                         
                         </div>
